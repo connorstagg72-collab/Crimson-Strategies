@@ -23,23 +23,22 @@
     overflow:hidden;
   }
 
-  /* Hero Section */
   .hero { min-height:100vh; }
-  .hero-bg {
+  .section-bg {
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background: url('chatgpt-hero.png') center/cover no-repeat;
+    background-size:cover;
+    background-position:center;
     z-index:1;
   }
-  .hero-gradient {
+  .overlay {
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background: linear-gradient(rgba(51,0,0,0.6), rgba(0,0,0,0.6));
+    background:linear-gradient(180deg, rgba(51,0,0,0.6), rgba(0,0,0,0.6));
     z-index:2;
   }
-
   .section-content { position:relative; z-index:3; max-width:800px; }
   h2.section-title {
     font-family:'Playfair Display', serif;
@@ -81,7 +80,11 @@
     box-shadow:0 0 25px rgba(255,0,0,0.2);
     max-width:650px;
   }
-  .section-card h3 { font-size:1.5rem; margin-bottom:0.8rem; color:#FFD58A; }
+  .section-card h3 {
+    font-size:1.5rem;
+    margin-bottom:0.8rem;
+    color:#FFD58A;
+  }
   .section-card p { color:#FFD8A6; font-size:0.95rem; }
 
   .fade-in { opacity:0; transform:translateY(15px); animation:fadeInUp 1s forwards; }
@@ -92,8 +95,8 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-gradient"></div>
+    <div class="section-bg" style="background: linear-gradient(rgba(51,0,0,0.6), rgba(0,0,0,0.6)), url('chatgpt-hero.png') center/cover no-repeat;"></div>
+    <div class="overlay"></div>
     <div class="section-content fade-in">
       <p>CRIMSON STRATEGIES</p>
       <h2 class="section-title">STRATEGY WITHOUT RISK.</h2>
