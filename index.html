@@ -1,284 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crimson Strategies</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Landing Page</title>
 
-<!-- PNG Favicon -->
-<link rel="icon" type="image/png" href="chatgpt-hero.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="chatgpt-hero.png" />
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      overflow-x: hidden;
+    }
 
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html, body {
-    background:#000;
-    color:#FFD8A6;
-    font-family:'Montserrat', sans-serif;
-    overflow-x:hidden;
-    scroll-behavior:smooth;
-  }
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0.75)
+        ),
+        url("chatgpt-hero.png") center/cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-  a { color:inherit; text-decoration:none; }
+    .hero h1 {
+      font-size: 58px;
+      letter-spacing: 2px;
+      margin: 0 0 15px;
+    }
 
-  section {
-    position:relative;
-    min-height:70vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:4rem 2rem;
-    overflow:hidden;
-  }
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
 
-  /* --- HERO SECTION --- */
-  .hero {
-    min-height:100vh;
-    position:relative;
-    overflow:hidden;
-  }
+    /* ---------- SHARED SECTION STYLING ---------- */
+    section {
+      padding: 120px 20px;
+      text-align: center;
+      position: relative;
+    }
 
-  .hero-img {
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:120%;
-    background:url('chatgpt-hero.png') center/cover no-repeat;
-    transform:translateY(0);
-    transition:transform 0.1s ease-out;
-    z-index:1;
-  }
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
 
-  .hero-gradient {
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:linear-gradient(180deg, rgba(51,0,0,0.82), rgba(0,0,0,0.78));
-    z-index:2;
-  }
+    section p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
 
-  .section-content {
-    position:relative;
-    z-index:3;
-    max-width:800px;
-  }
+    /* ---------- GRADIENT OVERLAYS (LESS TRANSPARENT AS REQUESTED) ---------- */
+    .gradient-1 {
+      background: linear-gradient(
+        rgba(80, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.5)
+      );
+    }
 
-  h2.section-title {
-    font-family:'Playfair Display', serif;
-    font-size:2.7rem;
-    margin-bottom:1rem;
-    background:linear-gradient(90deg,#FFD58A,#8B0000);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    letter-spacing:1px;
-  }
+    .gradient-2 {
+      background: linear-gradient(
+        rgba(100, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.55)
+      );
+    }
 
-  p {
-    font-size:1rem;
-    line-height:1.6;
-    margin-bottom:1rem;
-    color:#FFCA92;
-  }
+    .gradient-3 {
+      background: linear-gradient(
+        rgba(120, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.6)
+      );
+    }
 
-  button, .btn {
-    padding:0.8rem 2.5rem;
-    font-weight:700;
-    border:none;
-    border-radius:50px;
-    font-size:0.95rem;
-    cursor:pointer;
-    background:linear-gradient(135deg,#FFD58A,#FFB87C);
-    color:#000;
-    transition:all 0.3s ease;
-  }
+    /* ---------- FINAL CALL SECTION ---------- */
+    .cta {
+      padding: 140px 20px;
+      background: linear-gradient(
+        rgba(160, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.7)
+      );
+    }
 
-  button:hover, .btn:hover {
-    transform:scale(1.06);
-    box-shadow:0 0 25px #FFD58A;
-  }
+    .cta-button {
+      margin-top: 30px;
+      padding: 16px 40px;
+      background: crimson;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
 
-  /* Divider Bar */
-  .divider {
-    width:100%;
-    height:15px;
-    background:linear-gradient(90deg,#FFD58A,#FFB87C);
-    clip-path:polygon(0 0,100% 100%,100% 0,0 100%);
-  }
-
-  /* Cards */
-  .section-card {
-    background:rgba(51,0,0,0.08);
-    padding:2rem 1.5rem;
-    margin:1.5rem auto;
-    border-radius:20px;
-    box-shadow:0 0 15px rgba(255,0,0,0.12);
-    max-width:650px;
-  }
-
-  .section-card h3 {
-    font-size:1.5rem;
-    margin-bottom:0.8rem;
-    color:#FFD58A;
-  }
-
-  .section-card p {
-    font-size:0.97rem;
-    color:#FFD8A6;
-  }
-
-  /* Section backgrounds */
-  .section-bg {
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    z-index:1;
-  }
-
-  .overlay {
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:rgba(51,0,0,0.04);
-    z-index:2;
-  }
-
-  /* Animation */
-  .fade-in {
-    opacity:0;
-    transform:translateY(18px);
-    animation:fadeUp 1.2s forwards;
-  }
-
-  @keyframes fadeUp {
-    to { opacity:1; transform:translateY(0); }
-  }
-</style>
+    .cta-button:hover {
+      background: rgb(200, 0, 50);
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="hero-img" id="hero-img"></div>
-  <div class="hero-gradient"></div>
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <h1>Results That Require Zero Risk From You</h1>
+      <p>I front $6,000 of my own money into your customer acquisition system. You don’t pay a dollar until you see results.</p>
+    </div>
+  </div>
 
-  <div class="section-content fade-in">
-    <p>CRIMSON STRATEGIES</p>
-    <h2 class="section-title">STRATEGY WITHOUT RISK.</h2>
+  <!-- SECTION 1 -->
+  <section class="gradient-1">
+    <h2>No-Risk Guarantee</h2>
     <p>
-      REAL RESULTS FIRST.<br>
-      ZERO PAYMENTS UNTIL YOU SEE MONEY.<br>
-      ABSOLUTELY ZERO RISK.
+      I carry 100% of the upfront cost. You only pay once the results are already proven. If it doesn’t work, you owe nothing.
     </p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
-      Get Started Today
-    </button>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- HOW IT WORKS -->
-<section id="how-it-works">
-  <div class="section-bg" style="background:linear-gradient(180deg, rgba(102,0,0,0.04), rgba(51,0,0,0.04));"></div>
-  <div class="overlay"></div>
-
-  <div class="section-content fade-in">
-    <h2 class="section-title">How It Works</h2>
+  <!-- SECTION 2 -->
+  <section class="gradient-2">
+    <h2>High-Level Communication</h2>
     <p>
-      We invest <strong>$6,000 upfront</strong> into your business to guarantee measurable growth.  
-      You only pay when you see results.
+      Fast responses, clear updates, and full transparency. You know exactly what’s happening with your campaign at all times.
     </p>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="gradient-3">
+    <h2>Personalized Strategy</h2>
     <p>
-      Each plan is built specifically for your business model — no templates, no generic strategies.
+      Every business is different. I create a campaign tailored specifically to your brand, your niche, and your goals.
     </p>
-    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
-      See How We Can Help
-    </button>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- WHY CHOOSE US -->
-<section id="why-choose">
-  <div class="section-bg" style="background:linear-gradient(180deg, rgba(77,0,0,0.04), rgba(102,0,0,0.04));"></div>
-  <div class="overlay"></div>
-
-  <div class="section-content fade-in">
-    <h2 class="section-title">Why Choose Us</h2>
-
-    <div class="section-card">
-      <h3>Personalized Strategies</h3>
-      <p>Each plan is tailored to your specific industry, numbers, and scaling goals.</p>
-    </div>
-
-    <div class="section-card">
-      <h3>Expert Team</h3>
-      <p>Our strategists have a proven track record scaling businesses rapidly and effectively.</p>
-    </div>
-
-    <div class="section-card">
-      <h3>Zero Risk</h3>
-      <p>You pay nothing until real results come in. We take the financial risk — not you.</p>
-    </div>
-
-    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
-      Discover Why Us
-    </button>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- GUARANTEE SECTION -->
-<section id="guarantee">
-  <div class="section-bg" style="background:linear-gradient(180deg, rgba(102,0,0,0.04), rgba(51,0,0,0.04));"></div>
-  <div class="overlay"></div>
-
-  <div class="section-content fade-in">
-    <h2 class="section-title">Our Guarantee</h2>
-    <p>If our strategies fail to deliver measurable growth, you pay nothing — period.</p>
-    <p>This is a contractual guarantee backed by our $6,000 upfront investment into your success.</p>
-
-    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
-      View Our Guarantee
-    </button>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="overlay"></div>
-
-  <div class="section-content fade-in">
-    <h2 class="section-title">Contact Us</h2>
-    <p>Let’s build a growth strategy that eliminates your risk and accelerates your revenue.</p>
-
-    <div class="section-card">
-      <h3>Phone</h3>
-      <p><a href="tel:4352449057">435-244-9057</a></p>
-    </div>
-
-    <div class="section-card">
-      <h3>Email</h3>
-      <p><a href="mailto:Connorstagg72@gmail.com">Connorstagg72@gmail.com</a></p>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Parallax Effect
-  const heroImg = document.getElementById('hero-img');
-  window.addEventListener('scroll', () => {
-    heroImg.style.transform = `translateY(${window.pageYOffset * 0.4}px)`;
-  });
-</script>
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready To Start?</h2>
+    <p>Zero risk. My money first. Proven results before you spend anything. Let’s scale your business the right way.</p>
+    <button class="cta-button">Book a Call</button>
+  </section>
 
 </body>
 </html>
