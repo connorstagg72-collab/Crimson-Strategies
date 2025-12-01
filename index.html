@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crimson Strategies</title>
 
-<!-- Favicon -->
+<!-- PNG Favicon -->
 <link rel="icon" type="image/png" href="chatgpt-hero.png">
 
 <!-- Fonts -->
@@ -13,7 +13,7 @@
 
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  html, body { 
+  html, body {
     background:#000;
     color:#FFD8A6;
     font-family:'Montserrat', sans-serif;
@@ -35,7 +35,7 @@
     overflow:hidden;
   }
 
-  /* ===== HERO ===== */
+  /* --- HERO SECTION --- */
   .hero {
     min-height:100vh;
     position:relative;
@@ -100,7 +100,7 @@
     box-shadow:0 0 25px #FFD58A;
   }
 
-  /* Divider */
+  /* Divider Bar */
   .divider {
     width:100%;
     height:15px;
@@ -125,11 +125,11 @@
   }
 
   .section-card p {
-    color:#FFD8A6;
     font-size:0.97rem;
+    color:#FFD8A6;
   }
 
-  /* Section background overlays */
+  /* Section backgrounds */
   .section-bg {
     position:absolute;
     top:0; left:0;
@@ -145,7 +145,7 @@
     z-index:2;
   }
 
-  /* Animations */
+  /* Animation */
   .fade-in {
     opacity:0;
     transform:translateY(18px);
@@ -160,7 +160,7 @@
 
 <body>
 
-<!-- ===== HERO SECTION ===== -->
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-img" id="hero-img"></div>
   <div class="hero-gradient"></div>
@@ -181,20 +181,19 @@
 
 <div class="divider"></div>
 
-<!-- ===== HOW IT WORKS ===== -->
+<!-- HOW IT WORKS -->
 <section id="how-it-works">
   <div class="section-bg" style="background:linear-gradient(180deg, rgba(102,0,0,0.04), rgba(51,0,0,0.04));"></div>
-  
   <div class="overlay"></div>
 
   <div class="section-content fade-in">
     <h2 class="section-title">How It Works</h2>
     <p>
       We invest <strong>$6,000 upfront</strong> into your business to guarantee measurable growth.  
-      You pay nothing until you see results.
+      You only pay when you see results.
     </p>
     <p>
-      Each plan is fully personalized — built specifically for your model, not recycled templates.
+      Each plan is built specifically for your business model — no templates, no generic strategies.
     </p>
     <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
       See How We Can Help
@@ -204,7 +203,7 @@
 
 <div class="divider"></div>
 
-<!-- ===== WHY CHOOSE US ===== -->
+<!-- WHY CHOOSE US -->
 <section id="why-choose">
   <div class="section-bg" style="background:linear-gradient(180deg, rgba(77,0,0,0.04), rgba(102,0,0,0.04));"></div>
   <div class="overlay"></div>
@@ -214,23 +213,17 @@
 
     <div class="section-card">
       <h3>Personalized Strategies</h3>
-      <p>
-        Every plan is tailored to your exact industry, numbers, and scaling goals.
-      </p>
+      <p>Each plan is tailored to your specific industry, numbers, and scaling goals.</p>
     </div>
 
     <div class="section-card">
       <h3>Expert Team</h3>
-      <p>
-        Our strategists have a proven track record scaling businesses rapidly and efficiently.
-      </p>
+      <p>Our strategists have a proven track record scaling businesses rapidly and effectively.</p>
     </div>
 
     <div class="section-card">
       <h3>Zero Risk</h3>
-      <p>
-        You don’t pay unless the results come in. We carry the financial risk — not you.
-      </p>
+      <p>You pay nothing until real results come in. We take the financial risk — not you.</p>
     </div>
 
     <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
@@ -241,19 +234,16 @@
 
 <div class="divider"></div>
 
-<!-- ===== GUARANTEE ===== -->
+<!-- GUARANTEE SECTION -->
 <section id="guarantee">
   <div class="section-bg" style="background:linear-gradient(180deg, rgba(102,0,0,0.04), rgba(51,0,0,0.04));"></div>
   <div class="overlay"></div>
 
   <div class="section-content fade-in">
     <h2 class="section-title">Our Guarantee</h2>
-    <p>
-      If our strategies fail to deliver measurable growth, you pay nothing — period.
-    </p>
-    <p>
-      This isn’t a pitch. It’s a contractual, risk-free commitment backed by our $6,000 investment into your business.
-    </p>
+    <p>If our strategies fail to deliver measurable growth, you pay nothing — period.</p>
+    <p>This is a contractual guarantee backed by our $6,000 upfront investment into your success.</p>
+
     <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
       View Our Guarantee
     </button>
@@ -262,15 +252,13 @@
 
 <div class="divider"></div>
 
-<!-- ===== CONTACT ===== -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="overlay"></div>
 
   <div class="section-content fade-in">
     <h2 class="section-title">Contact Us</h2>
-    <p>
-      Let’s build a growth strategy that eliminates your risk and accelerates your revenue.
-    </p>
+    <p>Let’s build a growth strategy that eliminates your risk and accelerates your revenue.</p>
 
     <div class="section-card">
       <h3>Phone</h3>
@@ -285,7 +273,7 @@
 </section>
 
 <script>
-  // Parallax effect
+  // Parallax Effect
   const heroImg = document.getElementById('hero-img');
   window.addEventListener('scroll', () => {
     heroImg.style.transform = `translateY(${window.pageYOffset * 0.4}px)`;
