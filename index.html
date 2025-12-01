@@ -23,7 +23,7 @@
     overflow:hidden;
   }
 
-  .hero { min-height:100vh; }
+  .hero { min-height:100vh; overflow:hidden; }
   .section-bg {
     position:absolute;
     top:0; left:0;
@@ -31,12 +31,14 @@
     background-size:cover;
     background-position:center;
     z-index:1;
+    transform: translateZ(0);
+    will-change: transform;
   }
   .overlay {
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background:linear-gradient(180deg, rgba(0,0,0,0.7), rgba(51,0,0,0.85));
+    background:linear-gradient(180deg, rgba(51,0,0,0.3), rgba(0,0,0,0.3));
     z-index:2;
   }
   .section-content { position:relative; z-index:3; max-width:800px; }
@@ -80,11 +82,7 @@
     box-shadow:0 0 25px rgba(255,0,0,0.2);
     max-width:650px;
   }
-  .section-card h3 {
-    font-size:1.5rem;
-    margin-bottom:0.8rem;
-    color:#FFD58A;
-  }
+  .section-card h3 { font-size:1.5rem; margin-bottom:0.8rem; color:#FFD58A; }
   .section-card p { color:#FFD8A6; font-size:0.95rem; }
 
   .fade-in { opacity:0; transform:translateY(15px); animation:fadeInUp 1s forwards; }
@@ -95,7 +93,7 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="section-bg" style="background: linear-gradient(rgba(51,0,0,0.6), rgba(0,0,0,0.6)), url('Images/hero.png') center/cover no-repeat;"></div>
+    <div class="section-bg" id="hero-bg" style="background: url('Images/hero.png') center/cover no-repeat;"></div>
     <div class="overlay"></div>
     <div class="section-content fade-in">
       <p>CRIMSON STRATEGIES</p>
@@ -175,6 +173,15 @@
       </div>
     </div>
   </section>
+
+<script>
+  // Simple parallax for hero background
+  window.addEventListener('scroll', function() {
+    const heroBg = document.getElementById('hero-bg');
+    let offset = window.pageYOffset;
+    heroBg.style.transform = 'translateY(' + offset * 0.5 + 'px)';
+  });
+</script>
 
 </body>
 </html>
