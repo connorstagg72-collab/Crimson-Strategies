@@ -6,12 +6,10 @@
 <title>Crimson Strategies</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* --- Global --- */
   * { margin:0; padding:0; box-sizing:border-box; }
   body, html { font-family:'Montserrat', sans-serif; color:#FFD8A6; background:#000; overflow-x:hidden; scroll-behavior:smooth; }
   a { text-decoration:none; color:inherit; }
 
-  /* --- Section Base Style --- */
   section {
     position:relative;
     min-height:70vh;
@@ -24,7 +22,8 @@
     padding:4rem 2rem;
     overflow:hidden;
   }
-  .hero { min-height:100vh; } /* Full screen */
+
+  .hero { min-height:100vh; }
   .section-bg {
     position:absolute;
     top:0; left:0;
@@ -37,14 +36,10 @@
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background:linear-gradient(180deg, rgba(0,0,0,0.7), rgba(51,0,0,0.85));
+    background:linear-gradient(180deg, rgba(51,0,0,0.6), rgba(0,0,0,0.6));
     z-index:2;
   }
-  .section-content {
-    position:relative;
-    z-index:3;
-    max-width:800px;
-  }
+  .section-content { position:relative; z-index:3; max-width:800px; }
   h2.section-title {
     font-family:'Playfair Display', serif;
     font-size:2.5rem;
@@ -54,14 +49,8 @@
     -webkit-text-fill-color:transparent;
     letter-spacing:1px;
   }
-  p {
-    font-size:1rem;
-    line-height:1.6;
-    margin-bottom:1rem;
-    color:#FFB87C;
-  }
+  p { font-size:1rem; line-height:1.6; margin-bottom:1rem; color:#FFB87C; }
 
-  /* --- Buttons (matching dividers) --- */
   button, .btn {
     padding:0.8rem 2.5rem;
     font-weight:700;
@@ -73,12 +62,8 @@
     font-size:0.95rem;
     transition:all 0.3s ease;
   }
-  button:hover, .btn:hover {
-    transform:scale(1.05);
-    box-shadow:0 0 25px #FFD58A;
-  }
+  button:hover, .btn:hover { transform:scale(1.05); box-shadow:0 0 25px #FFD58A; }
 
-  /* --- Divider Between Sections --- */
   .divider {
     width:100%;
     height:15px;
@@ -87,7 +72,6 @@
     margin:0;
   }
 
-  /* --- Section Cards --- */
   .section-card {
     background:rgba(51,0,0,0.5);
     padding:2rem 1.5rem;
@@ -101,12 +85,8 @@
     margin-bottom:0.8rem;
     color:#FFD58A;
   }
-  .section-card p {
-    color:#FFD8A6;
-    font-size:0.95rem;
-  }
+  .section-card p { color:#FFD8A6; font-size:0.95rem; }
 
-  /* --- Animations --- */
   .fade-in { opacity:0; transform:translateY(15px); animation:fadeInUp 1s forwards; }
   @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
 </style>
@@ -115,13 +95,13 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="section-bg" style="background:url('/mnt/data/2222321b-c669-4038-87c5-1731b13052ad.png') center/cover no-repeat;"></div>
+    <div class="section-bg" style="background: linear-gradient(rgba(51,0,0,0.6), rgba(0,0,0,0.6)), url('chatgpt-hero.png') center/cover no-repeat;"></div>
     <div class="overlay"></div>
     <div class="section-content fade-in">
       <p>CRIMSON STRATEGIES</p>
       <h2 class="section-title">STRATEGY WITHOUT RISK.</h2>
       <p>REAL RESULTS FIRST.<br>ZERO PAYMENTS UNTIL YOU SEE MONEY.<br>100% ZERO RISK.</p>
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Get Started</button>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Get Started Today</button>
     </div>
   </section>
 
@@ -133,9 +113,9 @@
     <div class="overlay"></div>
     <div class="section-content fade-in">
       <h2 class="section-title">How It Works</h2>
-      <p>We invest <strong>$6,000 upfront</strong> into your business to guarantee measurable growth. You only pay once results are achieved. No risk, only results.</p>
+      <p>We invest <strong>$6,000 upfront</strong> into your business to guarantee measurable growth. You only pay once results are achieved.</p>
       <p>Our strategies are fully personalized to your business model, ensuring maximum ROI from day one.</p>
-      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">See Our Approach</button>
+      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">See How We Can Help</button>
     </div>
   </section>
 
@@ -165,13 +145,13 @@
 
   <div class="divider"></div>
 
-  <!-- Our Guarantee Section -->
+  <!-- Guarantee Section -->
   <section id="guarantee">
     <div class="section-bg" style="background:linear-gradient(180deg,#330000,#000);"></div>
     <div class="overlay"></div>
     <div class="section-content fade-in">
       <h2 class="section-title">Our Guarantee</h2>
-      <p>We are fully committed to your success. If our strategies don’t deliver measurable growth, you pay nothing. Our goal is to make your business thrive before we earn a single cent.</p>
+      <p>We are fully committed to your success. If our strategies don’t deliver measurable growth, you pay nothing.</p>
       <p>This is more than a promise; it’s a risk-free commitment backed by our upfront investment into your business.</p>
       <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">View Our Guarantee</button>
     </div>
@@ -185,12 +165,10 @@
     <div class="section-content fade-in">
       <h2>Contact Us</h2>
       <p>Let’s start building your growth strategy. Reach out and we’ll show you how zero-risk investing can accelerate your business.</p>
-      
       <div class="section-card" style="text-align:center;">
         <h3>Phone</h3>
         <p><a href="tel:4352449057" style="color:#FFD58A; text-decoration:none;">435-244-9057</a></p>
       </div>
-      
       <div class="section-card" style="text-align:center;">
         <h3>Email</h3>
         <p><a href="mailto:Connorstagg72@gmail.com" style="color:#FFD58A; text-decoration:none;">Connorstagg72@gmail.com</a></p>
