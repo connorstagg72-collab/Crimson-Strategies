@@ -23,22 +23,25 @@
     overflow:hidden;
   }
 
-  .hero { min-height:100vh; }
-  .section-bg {
+  /* Hero Section */
+  .hero { min-height:100vh; overflow:hidden; position:relative; }
+  #hero-bg {
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
+    background: url('chatgpt-hero.png') center/cover no-repeat;
     background-size:cover;
-    background-position:center;
     z-index:1;
+    will-change: transform;
   }
-  .overlay {
+  .hero-gradient {
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background:linear-gradient(180deg, rgba(51,0,0,0.6), rgba(0,0,0,0.6));
+    background:linear-gradient(180deg, rgba(51,0,0,0.3), rgba(0,0,0,0.3));
     z-index:2;
   }
+
   .section-content { position:relative; z-index:3; max-width:800px; }
   h2.section-title {
     font-family:'Playfair Display', serif;
@@ -87,6 +90,9 @@
   }
   .section-card p { color:#FFD8A6; font-size:0.95rem; }
 
+  .section-bg { position:absolute; top:0; left:0; width:100%; height:100%; background-size:cover; background-position:center; z-index:1; }
+  .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(51,0,0,0.4); z-index:2; }
+
   .fade-in { opacity:0; transform:translateY(15px); animation:fadeInUp 1s forwards; }
   @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
 </style>
@@ -95,8 +101,8 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="section-bg" style="background: linear-gradient(rgba(51,0,0,0.6), rgba(0,0,0,0.6)), url('chatgpt-hero.png') center/cover no-repeat;"></div>
-    <div class="overlay"></div>
+    <div id="hero-bg"></div>
+    <div class="hero-gradient"></div>
     <div class="section-content fade-in">
       <p>CRIMSON STRATEGIES</p>
       <h2 class="section-title">STRATEGY WITHOUT RISK.</h2>
@@ -175,6 +181,15 @@
       </div>
     </div>
   </section>
+
+<script>
+  // Parallax effect for hero image
+  const heroBg = document.getElementById('hero-bg');
+  window.addEventListener('scroll', () => {
+    const offset = window.pageYOffset;
+    heroBg.style.transform = `translateY(${offset * 0.3}px)`; // subtle parallax
+  });
+</script>
 
 </body>
 </html>
