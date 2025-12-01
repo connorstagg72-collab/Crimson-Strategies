@@ -24,15 +24,15 @@
   }
 
   /* Hero Section */
-  .hero { min-height:100vh; overflow:hidden; position:relative; }
-  #hero-bg {
+  .hero { min-height:100vh; position:relative; overflow:hidden; }
+  .hero-img {
     position:absolute;
     top:0; left:0;
-    width:100%; height:100%;
+    width:100%; height:120%; /* slightly bigger for smooth parallax */
     background: url('chatgpt-hero.png') center/cover no-repeat;
-    background-size:cover;
     z-index:1;
-    will-change: transform;
+    transform: translateY(0px);
+    transition: transform 0.1s ease-out;
   }
   .hero-gradient {
     position:absolute;
@@ -101,7 +101,7 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div id="hero-bg"></div>
+    <div class="hero-img" id="hero-img"></div>
     <div class="hero-gradient"></div>
     <div class="section-content fade-in">
       <p>CRIMSON STRATEGIES</p>
@@ -184,10 +184,10 @@
 
 <script>
   // Parallax effect for hero image
-  const heroBg = document.getElementById('hero-bg');
+  const heroImg = document.getElementById('hero-img');
   window.addEventListener('scroll', () => {
-    const offset = window.pageYOffset;
-    heroBg.style.transform = `translateY(${offset * 0.3}px)`; // subtle parallax
+    const scroll = window.pageYOffset;
+    heroImg.style.transform = `translateY(${scroll * 0.4}px)`; // smooth parallax
   });
 </script>
 
