@@ -4,11 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crimson Strategies</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="chatgpt-hero.png">
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body, html { font-family:'Montserrat', sans-serif; color:#FFD8A6; background:#000; overflow-x:hidden; scroll-behavior:smooth; }
-  a { text-decoration:none; color:inherit; }
+  html, body { 
+    background:#000;
+    color:#FFD8A6;
+    font-family:'Montserrat', sans-serif;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+  }
+
+  a { color:inherit; text-decoration:none; }
 
   section {
     position:relative;
@@ -18,176 +31,264 @@
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:#FFD8A6;
     padding:4rem 2rem;
     overflow:hidden;
   }
 
-  /* Hero Section */
-  .hero { min-height:100vh; position:relative; overflow:hidden; }
+  /* ===== HERO ===== */
+  .hero {
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+  }
+
   .hero-img {
     position:absolute;
     top:0; left:0;
     width:100%; height:120%;
-    background: url('chatgpt-hero.png') center/cover no-repeat;
+    background:url('chatgpt-hero.png') center/cover no-repeat;
+    transform:translateY(0);
+    transition:transform 0.1s ease-out;
     z-index:1;
-    transform: translateY(0px);
-    transition: transform 0.1s ease-out;
   }
+
   .hero-gradient {
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background:linear-gradient(180deg, rgba(51,0,0,0.75), rgba(0,0,0,0.75)); /* top gradient stays strong */
+    background:linear-gradient(180deg, rgba(51,0,0,0.82), rgba(0,0,0,0.78));
     z-index:2;
   }
 
-  .section-content { position:relative; z-index:3; max-width:800px; }
+  .section-content {
+    position:relative;
+    z-index:3;
+    max-width:800px;
+  }
+
   h2.section-title {
     font-family:'Playfair Display', serif;
-    font-size:2.5rem;
+    font-size:2.7rem;
     margin-bottom:1rem;
     background:linear-gradient(90deg,#FFD58A,#8B0000);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     letter-spacing:1px;
   }
-  p { font-size:1rem; line-height:1.6; margin-bottom:1rem; color:#FFB87C; }
+
+  p {
+    font-size:1rem;
+    line-height:1.6;
+    margin-bottom:1rem;
+    color:#FFCA92;
+  }
 
   button, .btn {
     padding:0.8rem 2.5rem;
     font-weight:700;
     border:none;
     border-radius:50px;
+    font-size:0.95rem;
+    cursor:pointer;
     background:linear-gradient(135deg,#FFD58A,#FFB87C);
     color:#000;
-    cursor:pointer;
-    font-size:0.95rem;
     transition:all 0.3s ease;
   }
-  button:hover, .btn:hover { transform:scale(1.05); box-shadow:0 0 25px #FFD58A; }
 
+  button:hover, .btn:hover {
+    transform:scale(1.06);
+    box-shadow:0 0 25px #FFD58A;
+  }
+
+  /* Divider */
   .divider {
     width:100%;
     height:15px;
     background:linear-gradient(90deg,#FFD58A,#FFB87C);
-    clip-path: polygon(0 0, 100% 100%, 100% 0, 0% 100%);
-    margin:0;
+    clip-path:polygon(0 0,100% 100%,100% 0,0 100%);
   }
 
+  /* Cards */
   .section-card {
-    background:rgba(51,0,0,0.15); /* extremely transparent */
+    background:rgba(51,0,0,0.08);
     padding:2rem 1.5rem;
     margin:1.5rem auto;
     border-radius:20px;
-    box-shadow:0 0 15px rgba(255,0,0,0.1);
+    box-shadow:0 0 15px rgba(255,0,0,0.12);
     max-width:650px;
   }
+
   .section-card h3 {
     font-size:1.5rem;
     margin-bottom:0.8rem;
     color:#FFD58A;
   }
-  .section-card p { color:#FFD8A6; font-size:0.95rem; }
 
-  .section-bg { position:absolute; top:0; left:0; width:100%; height:100%; background-size:cover; background-position:center; z-index:1; }
-  .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(51,0,0,0.05); z-index:2; } /* super transparent overlay */
+  .section-card p {
+    color:#FFD8A6;
+    font-size:0.97rem;
+  }
 
-  .fade-in { opacity:0; transform:translateY(15px); animation:fadeInUp 1s forwards; }
-  @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+  /* Section background overlays */
+  .section-bg {
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:1;
+  }
+
+  .overlay {
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(51,0,0,0.04);
+    z-index:2;
+  }
+
+  /* Animations */
+  .fade-in {
+    opacity:0;
+    transform:translateY(18px);
+    animation:fadeUp 1.2s forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity:1; transform:translateY(0); }
+  }
 </style>
 </head>
+
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-img" id="hero-img"></div>
-    <div class="hero-gradient"></div>
-    <div class="section-content fade-in">
-      <p>CRIMSON STRATEGIES</p>
-      <h2 class="section-title">STRATEGY WITHOUT RISK.</h2>
-      <p>REAL RESULTS FIRST.<br>ZERO PAYMENTS UNTIL YOU SEE MONEY.<br>100% ZERO RISK.</p>
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Get Started Today</button>
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-img" id="hero-img"></div>
+  <div class="hero-gradient"></div>
+
+  <div class="section-content fade-in">
+    <p>CRIMSON STRATEGIES</p>
+    <h2 class="section-title">STRATEGY WITHOUT RISK.</h2>
+    <p>
+      REAL RESULTS FIRST.<br>
+      ZERO PAYMENTS UNTIL YOU SEE MONEY.<br>
+      ABSOLUTELY ZERO RISK.
+    </p>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+      Get Started Today
+    </button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="how-it-works">
+  <div class="section-bg" style="background:linear-gradient(180deg, rgba(102,0,0,0.04), rgba(51,0,0,0.04));"></div>
+  
+  <div class="overlay"></div>
+
+  <div class="section-content fade-in">
+    <h2 class="section-title">How It Works</h2>
+    <p>
+      We invest <strong>$6,000 upfront</strong> into your business to guarantee measurable growth.  
+      You pay nothing until you see results.
+    </p>
+    <p>
+      Each plan is fully personalized — built specifically for your model, not recycled templates.
+    </p>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+      See How We Can Help
+    </button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section id="why-choose">
+  <div class="section-bg" style="background:linear-gradient(180deg, rgba(77,0,0,0.04), rgba(102,0,0,0.04));"></div>
+  <div class="overlay"></div>
+
+  <div class="section-content fade-in">
+    <h2 class="section-title">Why Choose Us</h2>
+
+    <div class="section-card">
+      <h3>Personalized Strategies</h3>
+      <p>
+        Every plan is tailored to your exact industry, numbers, and scaling goals.
+      </p>
     </div>
-  </section>
 
-  <div class="divider"></div>
-
-  <!-- How It Works Section -->
-  <section id="how-it-works">
-    <div class="section-bg" style="background:linear-gradient(180deg, rgba(102,0,0,0.05), rgba(51,0,0,0.05));"></div>
-    <div class="overlay"></div>
-    <div class="section-content fade-in">
-      <h2 class="section-title">How It Works</h2>
-      <p>We invest <strong>$6,000 upfront</strong> into your business to guarantee measurable growth. You only pay once results are achieved.</p>
-      <p>Our strategies are fully personalized to your business model, ensuring maximum ROI from day one.</p>
-      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">See How We Can Help</button>
+    <div class="section-card">
+      <h3>Expert Team</h3>
+      <p>
+        Our strategists have a proven track record scaling businesses rapidly and efficiently.
+      </p>
     </div>
-  </section>
 
-  <div class="divider"></div>
-
-  <!-- Why Choose Us Section -->
-  <section id="why-choose">
-    <div class="section-bg" style="background:linear-gradient(180deg, rgba(77,0,0,0.05), rgba(102,0,0,0.05));"></div>
-    <div class="overlay"></div>
-    <div class="section-content fade-in">
-      <h2 class="section-title">Why Choose Us</h2>
-      <div class="section-card">
-        <h3>Personalized Strategies</h3>
-        <p>Every client receives a fully customized growth plan designed to maximize results efficiently.</p>
-      </div>
-      <div class="section-card">
-        <h3>Expert Team</h3>
-        <p>Our team has years of experience scaling businesses with a proven track record of success.</p>
-      </div>
-      <div class="section-card">
-        <h3>Zero Risk</h3>
-        <p>We put our money where our mouth is. You don’t pay until you see measurable results.</p>
-      </div>
-      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Discover Why Us</button>
+    <div class="section-card">
+      <h3>Zero Risk</h3>
+      <p>
+        You don’t pay unless the results come in. We carry the financial risk — not you.
+      </p>
     </div>
-  </section>
 
-  <div class="divider"></div>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+      Discover Why Us
+    </button>
+  </div>
+</section>
 
-  <!-- Guarantee Section -->
-  <section id="guarantee">
-    <div class="section-bg" style="background:linear-gradient(180deg, rgba(102,0,0,0.05), rgba(51,0,0,0.05));"></div>
-    <div class="overlay"></div>
-    <div class="section-content fade-in">
-      <h2 class="section-title">Our Guarantee</h2>
-      <p>We are fully committed to your success. If our strategies don’t deliver measurable growth, you pay nothing.</p>
-      <p>This is more than a promise; it’s a risk-free commitment backed by our upfront investment into your business.</p>
-      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">View Our Guarantee</button>
+<div class="divider"></div>
+
+<!-- ===== GUARANTEE ===== -->
+<section id="guarantee">
+  <div class="section-bg" style="background:linear-gradient(180deg, rgba(102,0,0,0.04), rgba(51,0,0,0.04));"></div>
+  <div class="overlay"></div>
+
+  <div class="section-content fade-in">
+    <h2 class="section-title">Our Guarantee</h2>
+    <p>
+      If our strategies fail to deliver measurable growth, you pay nothing — period.
+    </p>
+    <p>
+      This isn’t a pitch. It’s a contractual, risk-free commitment backed by our $6,000 investment into your business.
+    </p>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+      View Our Guarantee
+    </button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="overlay"></div>
+
+  <div class="section-content fade-in">
+    <h2 class="section-title">Contact Us</h2>
+    <p>
+      Let’s build a growth strategy that eliminates your risk and accelerates your revenue.
+    </p>
+
+    <div class="section-card">
+      <h3>Phone</h3>
+      <p><a href="tel:4352449057">435-244-9057</a></p>
     </div>
-  </section>
 
-  <div class="divider"></div>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="overlay"></div>
-    <div class="section-content fade-in">
-      <h2>Contact Us</h2>
-      <p>Let’s start building your growth strategy. Reach out and we’ll show you how zero-risk investing can accelerate your business.</p>
-      <div class="section-card" style="text-align:center;">
-        <h3>Phone</h3>
-        <p><a href="tel:4352449057" style="color:#FFD58A; text-decoration:none;">435-244-9057</a></p>
-      </div>
-      <div class="section-card" style="text-align:center;">
-        <h3>Email</h3>
-        <p><a href="mailto:Connorstagg72@gmail.com" style="color:#FFD58A; text-decoration:none;">Connorstagg72@gmail.com</a></p>
-      </div>
+    <div class="section-card">
+      <h3>Email</h3>
+      <p><a href="mailto:Connorstagg72@gmail.com">Connorstagg72@gmail.com</a></p>
     </div>
-  </section>
+  </div>
+</section>
 
 <script>
-  // Parallax effect for hero image
+  // Parallax effect
   const heroImg = document.getElementById('hero-img');
   window.addEventListener('scroll', () => {
-    const scroll = window.pageYOffset;
-    heroImg.style.transform = `translateY(${scroll * 0.4}px)`; 
+    heroImg.style.transform = `translateY(${window.pageYOffset * 0.4}px)`;
   });
 </script>
 
