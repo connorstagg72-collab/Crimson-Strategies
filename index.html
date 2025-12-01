@@ -22,86 +22,83 @@
     .hero {
       height: 100vh;
       background: linear-gradient(
-          rgba(0, 0, 0, 0.78),
-          rgba(0, 0, 0, 0.78)
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0.75)
         ),
         url("chatgpt-hero.png") center/cover no-repeat fixed;
       display: flex;
-      align-items: flex-end;   /* moves content lower */
+      align-items: center;
       justify-content: center;
-      padding-bottom: 140px;   /* more spacing below text */
       text-align: center;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 0 20px;
     }
 
     .hero h1 {
       font-size: 58px;
       letter-spacing: 2px;
-      margin: 0 0 20px;
+      margin: 0 0 15px;
     }
 
     .hero p {
       font-size: 20px;
-      max-width: 670px;
+      max-width: 600px;
       margin: 0 auto;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     /* ---------- SHARED SECTION STYLING ---------- */
     section {
-      padding: 140px 20px; /* more spacing for each section */
+      padding: 120px 20px;
       text-align: center;
       position: relative;
     }
 
     section h2 {
-      font-size: 38px;
-      margin-bottom: 25px;
+      font-size: 36px;
+      margin-bottom: 20px;
     }
 
     section p {
-      font-size: 19px;
-      max-width: 760px;
+      font-size: 18px;
+      max-width: 700px;
       margin: 0 auto;
-      line-height: 1.7;
+      line-height: 1.5;
     }
 
-    /* ---------- STRONGER, MORE VISIBLE CRIMSON GRADIENTS ---------- */
-
+    /* ---------- GRADIENT OVERLAYS (LESS TRANSPARENT AS REQUESTED) ---------- */
     .gradient-1 {
       background: linear-gradient(
-        rgba(140, 0, 20, 0.55),
-        rgba(0, 0, 0, 0.6)
+        rgba(80, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.5)
       );
     }
 
     .gradient-2 {
       background: linear-gradient(
-        rgba(160, 0, 25, 0.55),
-        rgba(0, 0, 0, 0.62)
+        rgba(100, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.55)
       );
     }
 
     .gradient-3 {
       background: linear-gradient(
-        rgba(180, 0, 30, 0.55),
-        rgba(0, 0, 0, 0.65)
+        rgba(120, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.6)
       );
     }
 
-    /* ---------- FINAL CTA ---------- */
+    /* ---------- FINAL CALL SECTION ---------- */
     .cta {
-      padding: 160px 20px;
+      padding: 140px 20px;
       background: linear-gradient(
-        rgba(200, 0, 40, 0.55),
+        rgba(160, 0, 0, 0.5),
         rgba(0, 0, 0, 0.7)
       );
     }
 
     .cta-button {
-      margin-top: 35px;
-      padding: 18px 45px;
+      margin-top: 30px;
+      padding: 16px 40px;
       background: crimson;
       color: white;
       border: none;
